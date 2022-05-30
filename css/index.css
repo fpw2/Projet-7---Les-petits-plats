@@ -1,0 +1,102 @@
+@import url(/css/base.css);
+@import url(/css/recipe.css);
+@import url(/css/result.css);
+
+:root {
+  --primary: #3282f7;
+  --secondary: #69d9a4;
+  --tertiary: #ed6454;
+  --white: #fff;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+#title {
+  color: #d04f4f;
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}
+
+#inputs {
+  display: flex;
+  flex-wrap: wrap;
+  /* gère l'espace entre les box row & column */
+  gap: 0px 40px;
+  
+}
+
+input {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0px;
+  margin: 20px 0px;
+}
+
+#search-input {
+  background: url(/assets/icons/icon-search.svg) no-repeat right 10px bottom 40%;
+  background-color: #e7e7e7;
+  display: inline-block;
+  width: 100%;
+  padding: 15px;
+  font-weight: 600;
+}
+
+#search-input::placeholder {
+  color: #adadad;
+}
+
+::placeholder {
+  color: var(--white);
+}
+
+#search-ingredients,
+#search-apparatus,
+#search-utensils {
+  padding: 15px;
+  color: var(--white);
+  font-weight: 600;
+}
+
+#search-ingredients {
+  background-color: var(--primary);
+}
+
+#search-apparatus {
+  background-color: var(--secondary);
+}
+
+#search-utensils {
+  background-color: var(--tertiary);
+}
+
+#ingredients, #apparatus, #utensils {
+  position: relative;
+  cursor: pointer;
+}
+
+#chevron-ingredients, #chevron-apparatus, #chevron-utensils {
+  position: absolute;
+  right: 10px;
+  top: 38px;
+}
+
+.list-open {
+  display: wrap;
+}
+
+.chevron-down {
+  transform: rotate(180deg);
+}

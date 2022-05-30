@@ -1,0 +1,58 @@
+#list-ingredients-result {
+    background-color: var(--primary);
+}
+
+#list-apparatus-result {
+    background-color: var(--secondary);
+}
+
+#list-utensils-result {
+    background-color: var(--tertiary);
+}
+
+#ingredients {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-result {
+    /* display: none; */
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* max-height: 200px; */
+    color: var(--white);
+    border: 2px solid yellow;
+    top: 65px;
+    /* box-sizing: content-box; */
+}
+
+.item-list {
+    padding: 5px 0px 5px 10px;
+}
+
+.show-list {
+    opacity: 1;
+}
+
+.tag {
+    color: var(--white);
+    padding: 10px 40px 10px 15px;
+    border-radius: 5px;
+    margin: 5px 10px 5px 0px;
+    border-style: none;
+    background-image: url(/assets/icons/closeTag.png);
+    background-repeat: no-repeat;
+    background-position: right 10px bottom 50%;
+}
+
+.tag-ingredients {
+    background-color: var(--primary);
+}
+
+.tag-apparatus {
+    background-color: var(--secondary);
+}
+
+.tag-utensils {
+    background-color: var(--tertiary);
+}
