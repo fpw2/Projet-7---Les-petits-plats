@@ -13,17 +13,9 @@ export class Filter {
     this.recipes = this.recipes.filter(recipe => { // filter : me retourne tous les éléments trouvés correspondant
       return recipe.name.toLowerCase().includes(input.toLowerCase()) ||
         recipe.description.toLowerCase().includes(input.toLowerCase()) ||
-        // some : return true si il trouve une correspondance
-        recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "").includes(input.toLowerCase()))
+        recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(input.toLowerCase()))
     })
     return this.recipes
-  }
-
-
-  byUtensils(datasRecipes, input) {
-    return datasRecipes.filter(recipe => {
-      return recipe.ustensils.forEach(ustensil => ustensil.toLowerCase().includes(input.toLowerCase()))
-    })
   }
 
   byTag(tag) {
@@ -41,9 +33,10 @@ export class Filter {
         break
 
       case "utensils":
-
-
-      break
+        return this.recipes.filter(recipe => {
+          return recipe.ustensils.some(ustensil => ustensil.toLowerCase().includes(tag.value.toLowerCase()))
+        })
+        break
     }
     return this.recipes
   }

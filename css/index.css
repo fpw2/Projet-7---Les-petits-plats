@@ -93,9 +93,9 @@ input {
   top: 38px;
 }
 
-.list-open {
+/* .list-open {
   display: wrap;
-}
+} */
 
 .chevron-down {
   transform: rotate(180deg);

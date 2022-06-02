@@ -5,49 +5,58 @@ const utensilsResult = document.querySelector("#list-utensils-result")
 
 export const displayIngredients = (recipes, tagIngredients) => {
     ingredientsResult.innerHTML = ""
+    let ingredientsArray = []
+
     recipes.forEach(recipe => {
         const ingredients = recipe.ingredients
-        // je mets dans un nouveau tableau avec map tous les ingredients [Lait de coco, Jus de citron, etc]
-        let ingredientsArray = ingredients.map(ings => ings.ingredient)
-        let filteredIngredientsArray = [...new Set(ingredientsArray)]
-        console.log(filteredIngredientsArray)
-        // je filtre pour enlever ceux que j'ai dans mes tags
-        ingredientsArray = ingredientsArray.filter(ingredient => !tagIngredients.includes(ingredient)).sort()
-        // const filteredIngredientsArray = ingredientsArray.filter((ele,pos) => ingredientsArray.indexOf(ele) == pos)
-        //console.log(filteredIngredientsArray)
-        ingredientsArray.forEach(ingredient => {
-            ingredientsResult.insertAdjacentHTML("beforeend",
-                `<p class="item-list">${ingredient}</p>`)
-        })
+        const itemsIngredients = ingredients.map(ings => ings.ingredient) // ["",""]["",""]["","",""] etc...
+        itemsIngredients.forEach(item => ingredientsArray.push(item))
+    })
+
+    let ingredientsList = [...new Set(ingredientsArray)].sort() // j'enlève les doublons et je trie par ordre alpha
+    // je filtre pour enlever ceux que j'ai dans mes tags et je trie
+    ingredientsList = ingredientsList.filter(ingredient => !tagIngredients.includes(ingredient))
+
+    ingredientsList.forEach(ingredient => {
+        ingredientsResult.insertAdjacentHTML("beforeend",
+            `<p class="item-list">${ingredient}</p>`)
     })
 }
 
-export const displayApparatus = (recipes) => {
+export const displayApparatus = (recipes, tagApparatus) => {
     apparatusResult.innerHTML = ""
+    let apparatusArray = []
+
     recipes.filter(recipe => {
         const apparatus = recipe.appliance
-        // le résultat n'est pas un tableau donc je le transforme en tableau pour pouvoir le parcourir
-        let apparatusArray = []
+        // j'envoie tous les résultats dans mon tableau pour pouvoir le parcourir
         apparatusArray.push(apparatus)
-        // console.log(apparatusArray)
-        // const filteredApparatusArray = apparatusArray.filter((item, index) => apparatusArray.indexOf(item) !== index)
-        // console.log(filteredApparatusArray)
-        apparatusArray.forEach(apparatus => {
-            apparatusResult.insertAdjacentHTML("beforeend",
+    })
+
+    let apparatusList = [...new Set(apparatusArray)].sort()
+    apparatusList = apparatusList.filter(apparatus => !tagApparatus.includes(apparatus))
+
+    apparatusList.forEach(apparatus => {
+        apparatusResult.insertAdjacentHTML("beforeend",
             `<p class="item-list">${apparatus}</p>`)
-        })
     })
+
 }
 
-export const displayUtensils = (recipes) => {
+export const displayUtensils = (recipes, tagUtensils) => {
     utensilsResult.innerHTML = ""
-    recipes.filter(recipe => {
+    let utensilsArray = []
+
+    recipes.map(recipe => {
         const utensils = recipe.ustensils
-        //console.log(utensils)
-        // utensils.forEach(utensil => {
-        //     utensilsResult.insertAdjacentElement("beforeend", 
-        //     `<p class="item-list">${utensil}</p>`)
-        // })
+        utensils.forEach(utensil => utensilsArray.push(utensil))
+    })
+
+    let utensilsList = [...new Set(utensilsArray)].sort()
+    utensilsList = utensilsList.filter(utensil => !tagUtensils.includes(utensil))
+
+    utensilsList.forEach(utensil => {
+        utensilsResult.insertAdjacentHTML("beforeend", 
+            `<p class="item-list">${utensil}</p>`)
     })
 }
-
