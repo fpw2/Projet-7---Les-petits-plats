@@ -37,7 +37,9 @@ export const displayApparatus = (recipes, tagApparatus) => {
     })
 
     let apparatusList = [...new Set(apparatusArray)].sort()
-    apparatusList = apparatusList.filter(apparatus => !tagApparatus.includes(apparatus))
+    const inputApparatus = document.querySelector("#search-apparatus").value
+
+    apparatusList = apparatusList.filter(apparatus => !tagApparatus.includes(apparatus) && apparatus.toLowerCase().includes(inputApparatus.toLowerCase()))
 
     apparatusList.forEach(apparatus => {
         $apparatusResult.insertAdjacentHTML("beforeend",
@@ -56,7 +58,9 @@ export const displayUtensils = (recipes, tagUtensils) => {
     })
 
     let utensilsList = [...new Set(utensilsArray)].sort()
-    utensilsList = utensilsList.filter(utensil => !tagUtensils.includes(utensil))
+    const inputUtensils = document.querySelector("#search-utensils").value
+
+    utensilsList = utensilsList.filter(utensil => !tagUtensils.includes(utensil) && utensil.toLowerCase().includes(inputUtensils.toLowerCase()))
 
     utensilsList.forEach(utensil => {
         $utensilsResult.insertAdjacentHTML("beforeend", 

@@ -23,6 +23,9 @@ import {
 // DOM
 const $searchInput = document.querySelector("#search-input")
 const $searchResult = document.querySelector("#search-result")
+const $searchIngredients = document.querySelector("#search-ingredients")
+const $searchApparatus = document.querySelector("#search-apparatus")
+const $searchUtensils = document.querySelector("#search-utensils")
 const $tags = document.querySelector("#tags")
 const $listResult = document.querySelectorAll(".list-result")
 
@@ -56,8 +59,7 @@ const eventTag = () => {
     $listResult.forEach(list => {
         list.querySelectorAll(".item-list").forEach(itemList => {
             itemList.addEventListener("click", (e) => {
-                // objet tag avec une value et un type
-                const tag = {
+                const tag = { // objet tag avec une value et un type
                     value: e.target.textContent, // la valeur sur laquelle je clique dans ma liste
                     type: e.target.closest(".list-result").dataset.type // je vais chercher data-type de mon html(ingredients, apparatus ou utensils)
                 }
@@ -113,19 +115,17 @@ const removeTag = () => {
     })
 }
 
-const searchIngredients = document.querySelector("#search-ingredients")
-searchIngredients.addEventListener("keyup", (e) => {
+$searchIngredients.addEventListener("keyup", () => {
     displayIngredients(recipes, tagList)
 })
 
-// const searchIngredients = document.querySelector("#search-ingredients")
-// searchIngredients.addEventListener("keyup", (e) => {
-//     displayIngredients(recipes, tagList)
+$searchApparatus.addEventListener("keyup", () => {
+    displayApparatus(recipes, tagList)
+})
 
-// })const searchIngredients = document.querySelector("#search-ingredients")
-// searchIngredients.addEventListener("keyup", (e) => {
-//     displayIngredients(recipes, tagList)
-// })
+$searchUtensils.addEventListener("keyup", () => {
+    displayUtensils(recipes, tagList)
+})
 
 
 /**

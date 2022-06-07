@@ -7,7 +7,6 @@ export const toggleListResult = () => {
                 e.currentTarget.querySelector("input").placeholder = e.currentTarget.querySelector("input").dataset.type
             } else {
                 listComboBox.forEach(combo => {
-                    console.log(combo)
                     combo.classList.remove("open")
                     combo.querySelector("input").placeholder = combo.querySelector("input").dataset.type
                 })
