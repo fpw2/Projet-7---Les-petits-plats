@@ -33,7 +33,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   /* gère l'espace entre les box row & column */
-  gap: 0px 40px;
+  gap: 0px 20px;
   
 }
 
@@ -58,16 +58,23 @@ input {
   color: #adadad;
 }
 
-::placeholder {
+.all::placeholder {
+  color: rgb(152,192,251)
+}
+
+#search-ingredients::placeholder,
+#search-apparatus::placeholder,
+#search-utensils::placeholder {
   color: var(--white);
 }
 
 #search-ingredients,
 #search-apparatus,
 #search-utensils {
-  padding: 15px;
+  padding: 15px 15px 15px 10px;
   color: var(--white);
   font-weight: 600;
+  width: 100%;
 }
 
 #search-ingredients {
@@ -93,10 +100,8 @@ input {
   top: 38px;
 }
 
-/* .list-open {
-  display: wrap;
-} */
-
 .chevron-down {
   transform: rotate(180deg);
 }
+
+

@@ -1,13 +1,21 @@
 #list-ingredients-result {
     background-color: var(--primary);
+    width: 430px;
+    height: 290px; 
+    overflow: scroll;
 }
 
 #list-apparatus-result {
     background-color: var(--secondary);
+    width: 230px;
+    height: 290px;
 }
 
 #list-utensils-result {
     background-color: var(--tertiary);
+    width: 450px;
+    height: 290px;
+    overflow: scroll;
 }
 
 #ingredients {
@@ -16,20 +24,33 @@
 }
 
 .list-result {
-    /* display: none; */
-    display: flex;
+    display: none ;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 250px;
-    height: 300px;
+    border-radius: 0px 0px 5px 5px;
     color: var(--white);
-    border: 2px solid yellow;
-    overflow: scroll;
-    /* box-sizing: content-box; */
+    margin: -20px 0px 20px 0px;
+}
+
+#search-result {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    border-radius: 20px;
+}
+
+.no-result {
+    background-color: rgb(167, 25, 25);
+    position: fixed;    
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
 }
 
 .item-list {
-    padding: 5px 0px 5px 10px;
+    padding: 5px 10px 5px 10px;
+    color: rgb(240, 245, 250);
+    display: inline-block;
 }
 
 .show-list {
@@ -43,13 +64,10 @@
 
 .tag {
     color: var(--white);
-    padding: 10px 40px 10px 15px;
-    border-radius: 5px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 5px; border-style: none;
     margin: 5px 10px 5px 0px;
-    border-style: none;
-    background-repeat: no-repeat;
-    background-position: right 10px bottom 50%;
-    display: flex;
+    align-items: center;
 }
 
 .close-tag {
@@ -72,14 +90,30 @@
     background-color: var(--tertiary);
 }
 
-
-.active {
-    background-color: black;
-}
-
 .fa-xmark {
     color: white;
     border: 2px solid white; border-radius: 50%;
     display: flex;
-    align-items: center;
+    margin-left: 10px;
+}
+
+.fa-xmark::before {
+    /* centrage */
+    line-height: 16px; 
+}
+
+.combo-box.open .list-result {
+    display: flex;
+}
+
+.combo-box.open .chevron {
+    transform: rotate(180deg);
+}
+
+.combo-box.open input {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.combo-box .chevron {
+    transition: transform 0.2s;
 }

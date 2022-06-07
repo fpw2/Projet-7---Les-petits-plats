@@ -98,6 +98,12 @@ MOBILE
 ***************************************************/
 @media screen and (max-width: 425px){
 
+    #list-ingredients-result {
+        width: 300px !important;
+    }
+    #list-utensils-result {
+        width: 280px !important;
+    }
     #search-result {
         grid-template-columns: auto !important;
     }

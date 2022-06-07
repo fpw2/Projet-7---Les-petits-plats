@@ -1,8 +1,6 @@
 /**
- * Filtre mes recettes en faisant correspondre mes données avec ce que je tappe dans la recherche
- * @param {object} dataRecipes 
- * @param {string} value 
- * @returns nom ou description ou ingredients if true
+ * Filtre mes recettes en faisant correspondre mes données 
+ * avec ce que je tappe dans la recherche ou avec les tags
  */
 export class Filter {
   constructor(recipes) {
@@ -15,14 +13,24 @@ export class Filter {
         recipe.description.toLowerCase().includes(input.toLowerCase()) ||
         recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(input.toLowerCase()))
     })
-    return this.recipes
+    if (this.recipes.length == 0) {
+      const $searchResult = document.querySelector("#search-result")
+      const result = document.createElement("p")
+      result.classList.add("no-result")
+      result.textContent = "Aucune recette ne correspond à votre recherche"
+      $searchResult.appendChild(result)
+    } else {
+      return this.recipes
+    }
   }
 
   byTag(tag) {
     switch (tag.type) { // je viens chercher la valeur type de mon objet tag
       case "ingredients":
         this.recipes = this.recipes.filter(recipe => {
-          return recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tag.value.toLowerCase()))
+          return recipe.ingredients.some(ingredient => {
+            return ingredient.ingredient.toLowerCase().includes(tag.value.toLowerCase())
+          })
         })
         break
 
@@ -33,11 +41,14 @@ export class Filter {
         break
 
       case "utensils":
-        return this.recipes.filter(recipe => {
-          return recipe.ustensils.some(ustensil => ustensil.toLowerCase().includes(tag.value.toLowerCase()))
+        this.recipes = this.recipes.filter(recipe => {
+          return recipe.ustensils.some(ustensil => {
+            return ustensil.toLowerCase().includes(tag.value.toLowerCase())
+          })
         })
         break
     }
+    console.log("tag", this.recipes)
     return this.recipes
   }
 
