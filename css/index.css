@@ -1,6 +1,6 @@
-@import url(../css/base.css);
-@import url(../css/recipe.css);
-@import url(../css/result.css);
+@import url(./base.css);
+@import url(./recipe.css);
+@import url(./base.css);
 
 :root {
   --primary: #3282f7;
