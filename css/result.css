@@ -53,6 +53,19 @@
     display: inline-block;
 }
 
+.item-ingredients:hover {
+    background-color: #2C72D8;
+}
+
+.item-apparatus:hover {
+    background-color: #5CBE90;
+}
+
+.item-utensils:hover {
+    background-color: #CF584A;
+}
+
+
 .show-list {
     display: block;
 }

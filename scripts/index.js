@@ -68,7 +68,7 @@ const eventTag = () => {
                     <button class="tag tag-${tag.type}">${tag.value}<i class="fa-solid fa-xmark close-tag" data-value="${tag.value}"></i></button>
                 `
                 const tagResult = filter.byTag(tag) // je trie avec ma class Filter
-                $searchResult.innerHTML = "" // je supprime les résultas qui ne correspondent pas
+                $searchResult.innerHTML = "" // je vide les résultas qui ne correspondent pas
 
                 displayRecipes(tagResult)
                 displayIngredients(tagResult, tagList.filter(tag => tag.type == "ingredients").map(tag => tag.value))
@@ -83,12 +83,25 @@ const eventTag = () => {
 }
 
 /**
+ * Suppression tag
+ */
+ const removeTag = () => {
+    document.querySelectorAll(".close-tag").forEach(tag => {
+        tag.addEventListener("click", (e) => {
+            e.target.closest(".tag").remove()
+            tagList = tagList.filter(tag => tag.value != e.target.dataset.value)
+            filterTagSearch()
+        })
+    })
+}
+
+/**
  * Filtre par la barre de recherche et les tags (ensemble)
  */
 const filterTagSearch = () => {
     filter.recipes = recipes // reinitialise avec toutes les recettes
     let result = filter.recipes
-    let input = document.querySelector("#search-input").value
+    let input = document.querySelector("#search-input").value // la valeur de ce que je tappe dans mon input
     if (input.length >= 3) {
         result = filter.bySearchBar(input)
     }
@@ -102,31 +115,21 @@ const filterTagSearch = () => {
     eventTag()
 }
 
-/**
- * Suppression tag
- */
-const removeTag = () => {
-    document.querySelectorAll(".close-tag").forEach(tag => {
-        tag.addEventListener("click", (e) => {
-            e.target.closest(".tag").remove()
-            tagList = tagList.filter(tag => tag.value != e.target.dataset.value)
-            filterTagSearch()
-        })
-    })
-}
-
 $searchIngredients.addEventListener("keyup", () => {
     displayIngredients(recipes, tagList)
+    eventTag()
+
 })
 
 $searchApparatus.addEventListener("keyup", () => {
     displayApparatus(recipes, tagList)
+    eventTag()
+
 })
 
 $searchUtensils.addEventListener("keyup", () => {
     displayUtensils(recipes, tagList)
 })
-
 
 /**
  * Initialisation 

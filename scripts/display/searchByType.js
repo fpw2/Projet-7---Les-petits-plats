@@ -22,7 +22,7 @@ export const displayIngredients = (recipes, tagIngredients) => {
     
     ingredientsList.forEach(ingredient => {
         $ingredientsResult.insertAdjacentHTML("beforeend",
-            `<p class="item-list">${ingredient}</p>`)
+            `<p class="item-list item-ingredients">${ingredient}</p>`)
     })
 }
 
@@ -32,8 +32,7 @@ export const displayApparatus = (recipes, tagApparatus) => {
 
     recipes.filter(recipe => {
         const apparatus = recipe.appliance
-        // j'envoie tous les résultats dans mon tableau pour pouvoir le parcourir
-        apparatusArray.push(apparatus)
+        apparatusArray.push(apparatus) // j'envoie tous les résultats dans mon tableau pour pouvoir le parcourir
     })
 
     let apparatusList = [...new Set(apparatusArray)].sort()
@@ -43,7 +42,7 @@ export const displayApparatus = (recipes, tagApparatus) => {
 
     apparatusList.forEach(apparatus => {
         $apparatusResult.insertAdjacentHTML("beforeend",
-            `<p class="item-list">${apparatus}</p>`)
+            `<p class="item-list item-apparatus">${apparatus}</p>`)
     })
 
 }
@@ -64,6 +63,6 @@ export const displayUtensils = (recipes, tagUtensils) => {
 
     utensilsList.forEach(utensil => {
         $utensilsResult.insertAdjacentHTML("beforeend", 
-            `<p class="item-list">${utensil}</p>`)
+            `<p class="item-list item-utensils">${utensil}</p>`)
     })
 }
