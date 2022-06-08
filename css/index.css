@@ -1,6 +1,6 @@
-@import url("base.css");
-@import url("recipe.css");
-@import url("result.css");
+@import url("./base.css");
+@import url("./recipe.css");
+@import url("./result.css");
 
 :root {
   --primary: #3282f7;
@@ -46,7 +46,7 @@ input {
 }
 
 #search-input {
-  background: url(/assets/icons/icon-search.svg) no-repeat right 10px bottom 40%;
+  background: url(../assets/icons/icon-search.svg) no-repeat right 10px bottom 40%;
   background-color: #e7e7e7;
   display: inline-block;
   width: 100%;
