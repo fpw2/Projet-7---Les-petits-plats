@@ -9,6 +9,7 @@ export class Filter {
 
   bySearchBar(input) {
     this.recipes = this.recipes.filter(recipe => { // filter : me retourne tous les éléments trouvés correspondant
+      console.log("recettes :", recipe)
       return recipe.name.toLowerCase().includes(input.toLowerCase()) ||
         recipe.description.toLowerCase().includes(input.toLowerCase()) ||
         recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(input.toLowerCase()))
@@ -48,8 +49,26 @@ export class Filter {
         })
         break
     }
-    console.log("tag", this.recipes)
+    //console.log("tag", this.recipes)
     return this.recipes
   }
 
 }
+
+// bySearchBar(input) {
+//   this.recipes = this.recipes.filter(recipe => { // filter : me retourne tous les éléments trouvés correspondant
+//     console.log("recettes :", recipe)
+//     return recipe.name.toLowerCase().includes(input.toLowerCase()) ||
+//       recipe.description.toLowerCase().includes(input.toLowerCase()) ||
+//       recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(input.toLowerCase()))
+//   })
+//   if (this.recipes.length == 0) {
+//     const $searchResult = document.querySelector("#search-result")
+//     const result = document.createElement("p")
+//     result.classList.add("no-result")
+//     result.textContent = "Aucune recette ne correspond à votre recherche"
+//     $searchResult.appendChild(result)
+//   } else {
+//     return this.recipes
+//   }
+// }

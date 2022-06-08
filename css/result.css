@@ -1,8 +1,8 @@
 #list-ingredients-result {
     background-color: var(--primary);
-    width: 430px;
+    width: 420px;
     height: 290px; 
-    overflow: scroll;
+    overflow-x: scroll;
 }
 
 #list-apparatus-result {
@@ -13,9 +13,9 @@
 
 #list-utensils-result {
     background-color: var(--tertiary);
-    width: 450px;
+    width: 440px;
     height: 290px;
-    overflow: scroll;
+    overflow-x: scroll;
 }
 
 #ingredients {
