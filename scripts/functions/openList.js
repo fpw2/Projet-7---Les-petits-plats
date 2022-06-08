@@ -2,9 +2,6 @@ export const toggleListResult = () => {
     const listComboBox = document.querySelectorAll(".combo-box")
     listComboBox.forEach(comboBox => {
         comboBox.addEventListener("click", (e) => {
-            console.log(e.currentTarget)
-            console.log(e.target)
-
             if (e.currentTarget.classList.contains("open")) { // ne pas confondre avec e.current
                 e.currentTarget.classList.remove("open")
                 e.currentTarget.querySelector("input").placeholder = e.currentTarget.querySelector("input").dataset.type
