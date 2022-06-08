@@ -90,6 +90,7 @@ const eventTag = () => {
         tag.addEventListener("click", (e) => {
             e.target.closest(".tag").remove()
             tagList = tagList.filter(tag => tag.value != e.target.dataset.value)
+            $searchResult.innerHTML = ""
             filterTagSearch()
         })
     })
