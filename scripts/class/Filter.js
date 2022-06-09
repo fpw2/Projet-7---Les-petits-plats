@@ -9,7 +9,7 @@ export class Filter {
 
   bySearchBar(input) {
     this.recipes = this.recipes.filter(recipe => { // filter : me retourne tous les éléments trouvés correspondant
-      console.log("recettes :", recipe)
+      //console.log("recettes :", recipe)
       return recipe.name.toLowerCase().includes(input.toLowerCase()) ||
         recipe.description.toLowerCase().includes(input.toLowerCase()) ||
         recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(input.toLowerCase()))

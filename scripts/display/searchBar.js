@@ -1,5 +1,5 @@
 // DOM
-const searchResult = document.querySelector("#search-result")
+const $searchResult = document.querySelector("#search-result")
 
 /**
  * Affiche le rendu HTML d'une recette
@@ -7,7 +7,7 @@ const searchResult = document.querySelector("#search-result")
  */
  export const displayRecipe = (recipe) => {
     const ingredients = recipe.ingredients.map(ingredient => `<li>${ingredient.ingredient} : ${ingredient?.quantity ?? ""} ${ingredient?.unit ?? ""}</li>`).join("")
-    searchResult.insertAdjacentHTML("beforeend",
+    $searchResult.insertAdjacentHTML("beforeend",
         `
     <div class="recipe">
         <div class="recipe-image"></div>

@@ -47,7 +47,7 @@ const displayRecipes = (recipes) => {
 /**
  * Search bar
  */
-$searchInput.addEventListener("keyup", (e) => {
+$searchInput.addEventListener("keyup", () => {
     $searchResult.innerHTML = "" // évite les doublons et vide à chaque recherche
     filterTagSearch()
 })

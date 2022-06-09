@@ -7,6 +7,18 @@
   --secondary: #69d9a4;
   --tertiary: #ed6454;
   --white: #fff;
+
+  /* nuance */
+  --primary-shade: #2c72d8;
+  --secondary-shade: #5cbe90;
+  --tertiary-shade: #cf584a;
+
+  /* teinte */
+  --primary-hue: hsl(216, 29%, 84%);
+  --secondary-hue: hsl(151, 17%, 86%);
+  --tertiary-hue: hsl(6, 23%, 86%);
+
+  --error: rgb(167, 25, 25);
 }
 
 body {
@@ -103,5 +115,4 @@ input {
 .chevron-down {
   transform: rotate(180deg);
 }
-
 
