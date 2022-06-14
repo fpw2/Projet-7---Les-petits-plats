@@ -39,7 +39,7 @@ let tagList = []
  * Affichage des recettes 
  */
 const displayRecipes = (recipes) => {
-    recipes?.forEach(recipe => {
+    recipes.forEach(recipe => {
         displayRecipe(recipe)
     })
 }
