@@ -30,7 +30,7 @@ const $tags = document.querySelector("#tags")
 const $listResult = document.querySelectorAll(".list-result")
 
 // CLASS
-const filter = new Filter(recipes);
+const filter = new Filter(recipes)
 
 // ARRAY
 let tagList = []
@@ -39,7 +39,7 @@ let tagList = []
  * Affichage des recettes 
  */
 const displayRecipes = (recipes) => {
-    recipes?.forEach(recipe => {
+    recipes.forEach(recipe => {
         displayRecipe(recipe)
     })
 }
@@ -85,7 +85,7 @@ const eventTag = () => {
 /**
  * Suppression tag
  */
- const removeTag = () => {
+const removeTag = () => {
     document.querySelectorAll(".close-tag").forEach(tag => {
         tag.addEventListener("click", (e) => {
             e.target.closest(".tag").remove()
@@ -119,17 +119,16 @@ const filterTagSearch = () => {
 $searchIngredients.addEventListener("keyup", () => {
     displayIngredients(recipes, tagList)
     eventTag()
-
 })
 
 $searchApparatus.addEventListener("keyup", () => {
     displayApparatus(recipes, tagList)
     eventTag()
-
 })
 
 $searchUtensils.addEventListener("keyup", () => {
     displayUtensils(recipes, tagList)
+    eventTag()
 })
 
 /**
@@ -141,4 +140,3 @@ displayApparatus(recipes, [])
 displayUtensils(recipes, [])
 toggleListResult()
 eventTag()
-
