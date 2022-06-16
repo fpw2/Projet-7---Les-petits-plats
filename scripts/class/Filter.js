@@ -11,14 +11,16 @@ export class Filter {
 
     let result = []
     for (let recipe of this.recipes) {
-      if (recipe.name.toLowerCase().includes(input.toLowerCase())) {
-          result.push(recipe)
+      if (recipe.name.toLowerCase().includes(input.toLowerCase()) ||
+        recipe.description.toLowerCase().includes(input.toLowerCase()) ||
+        recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(input.toLowerCase()))) {
+        result.push(recipe)
       }
       this.recipes = result
-  }
-  return this.recipes
+    }
+    return this.recipes
 
-}
+  }
 
   byTag(tag) {
     switch (tag.type) { // je viens chercher la valeur type de mon objet tag
@@ -44,8 +46,6 @@ export class Filter {
         })
         break
     }
-    //console.log("tag", this.recipes)
     return this.recipes
   }
 }
-
