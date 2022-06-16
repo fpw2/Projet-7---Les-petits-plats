@@ -15,9 +15,8 @@ export const displayIngredients = (recipes, tagIngredients) => {
 
     let ingredientsList = [...new Set(ingredientsArray)].sort() // j'enlève les doublons et je trie par ordre alpha
     
-    // je filtre en enlevant ceux que j'ai dans mes tags et ce que je tappe
-    // console.log(ingredientsList) 
     const inputIngredients = document.querySelector("#search-ingredients").value
+    // je filtre en enlevant ceux que j'ai dans mes tags et ce que je tappe
     ingredientsList = ingredientsList.filter(ingredient => !tagIngredients.includes(ingredient) && ingredient.toLowerCase().includes(inputIngredients.toLowerCase()))
     
     ingredientsList.forEach(ingredient => {

@@ -116,20 +116,23 @@ const filterTagSearch = () => {
     eventTag()
 }
 
-$searchIngredients.addEventListener("keyup", () => {
-    displayIngredients(recipes, tagList)
-    eventTag()
-})
-
-$searchApparatus.addEventListener("keyup", () => {
-    displayApparatus(recipes, tagList)
-    eventTag()
-})
-
-$searchUtensils.addEventListener("keyup", () => {
-    displayUtensils(recipes, tagList)
-    eventTag()
-})
+/**
+ * Gestion des listes(ingredients, appareils, ustensiles)
+ */
+const eventList = () => {
+    $searchIngredients.addEventListener("keyup", () => {
+        displayIngredients(recipes, tagList)
+        eventTag()
+    })
+    $searchApparatus.addEventListener("keyup", () => {
+        displayApparatus(recipes, tagList)
+        eventTag()
+    })
+    $searchUtensils.addEventListener("keyup", () => {
+        displayUtensils(recipes, tagList)
+        eventTag()
+    })
+}
 
 /**
  * Initialisation 
@@ -140,3 +143,4 @@ displayApparatus(recipes, [])
 displayUtensils(recipes, [])
 toggleListResult()
 eventTag()
+eventList()
