@@ -12,7 +12,9 @@ export class Filter {
     this.recipes = this.recipes.filter(recipe => { // filter : me retourne tous les éléments trouvés correspondant
       return recipe.name.toLowerCase().includes(input.toLowerCase()) ||
         recipe.description.toLowerCase().includes(input.toLowerCase()) ||
-        recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(input.toLowerCase()))
+        recipe.ingredients.some(ing => {
+          return ing.ingredient.toLowerCase().includes(input.toLowerCase())
+        })
     })
     return this.recipes
   }

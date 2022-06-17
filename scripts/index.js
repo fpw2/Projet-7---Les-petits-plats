@@ -44,7 +44,7 @@ const displayRecipes = (recipes) => {
     recipes.forEach(recipe => {
         displayRecipe(recipe)
     })
-    if ($searchResult.children.length == 0){ // à l'affichage je regarde si mon DOM est vide
+    if ($searchResult.children.length == 0){ // à l'affichage je regarde si mon DOM est vide dans search-result
         interfaceMessage()
     }
 }

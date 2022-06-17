@@ -5,3 +5,6 @@ Site de recherche pour des recettes de cuisine en fonction de plusieurs critère
 -par ingrédients
 -par appareils
 -par ustensiles
+
+## Render
+![Alt text](assets/apercu.png)
