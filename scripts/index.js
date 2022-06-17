@@ -20,7 +20,6 @@ import {
     toggleListResult
 } from "./functions/openList.js"
 
-
 // DOM
 const $searchInput = document.querySelector("#search-input")
 const $searchResult = document.querySelector("#search-result")
@@ -29,7 +28,6 @@ const $searchApparatus = document.querySelector("#search-apparatus")
 const $searchUtensils = document.querySelector("#search-utensils")
 const $tags = document.querySelector("#tags")
 const $listResult = document.querySelectorAll(".list-result")
-
 
 // CLASS
 const filter = new Filter(recipes)
@@ -68,15 +66,16 @@ const eventTag = () => {
                     value: e.target.textContent, // la valeur sur laquelle je clique dans ma liste
                     type: e.target.closest(".list-result").dataset.type // je vais chercher data-type de mon html(ingredients, apparatus ou utensils)
                 }
-                tagList.push(tag) // je mets dans mon tableau tous ce que je click
-                $tags.innerHTML += `
+                tagList.push(tag) // je mets dans un tableau tous ce que je click
+                $tags.innerHTML += ` 
                     <button class="tag tag-${tag.type}">${tag.value}<i class="fa-solid fa-xmark close-tag" data-value="${tag.value}"></i></button>
                 `
-                const tagResult = filter.byTag(tag) // je trie avec ma class Filter
+                const tagResult = filter.byTag(tag) // je trie avec ma class Filter ce qui me donne toutes les recettes correspondantes avec les tags sélectionnées
                 $searchResult.innerHTML = "" // je vide les résultas qui ne correspondent pas
 
                 displayRecipes(tagResult)
-                displayIngredients(tagResult, tagList.filter(tag => tag.type == "ingredients").map(tag => tag.value))
+                // tagResult = mes recettes trouvées   // je filtre en fonction du type de mon tag cliqué et je fais un tableau avec
+                displayIngredients(tagResult, tagList.filter(tag => tag.type == "ingredients").map(tag => tag.value))  
                 displayApparatus(tagResult, tagList.filter(tag => tag.type == "apparatus").map(tag => tag.value))
                 displayUtensils(tagResult, tagList.filter(tag => tag.type == "utensils").map(tag => tag.value))
                 eventTag()
@@ -92,8 +91,8 @@ const eventTag = () => {
  */
 const removeTag = () => {
     document.querySelectorAll(".close-tag").forEach(tag => {
-        tag.addEventListener("click", (e) => {
-            e.target.closest(".tag").remove()
+        tag.addEventListener("click", (e) => { // je lance un event sur la croix de mon tag
+            e.target.closest(".tag").remove() // je sélectionne mon tag et le supprime
             tagList = tagList.filter(tag => tag.value != e.target.dataset.value)
             $searchResult.innerHTML = ""
             filterTagSearch()

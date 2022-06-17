@@ -3,7 +3,7 @@ const $ingredientsResult = document.querySelector("#list-ingredients-result")
 const $apparatusResult = document.querySelector("#list-apparatus-result")
 const $utensilsResult = document.querySelector("#list-utensils-result")
 
-export const displayIngredients = (recipes, tagIngredients) => {
+export const displayIngredients = (recipes, tagIngredients) => {  // tagIngredients : tous les tags que j'ai cliqué
     $ingredientsResult.innerHTML = ""
     let ingredientsArray = []
 
