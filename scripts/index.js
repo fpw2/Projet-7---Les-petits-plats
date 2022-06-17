@@ -20,6 +20,7 @@ import {
     toggleListResult
 } from "./functions/openList.js"
 
+
 // DOM
 const $searchInput = document.querySelector("#search-input")
 const $searchResult = document.querySelector("#search-result")
@@ -28,6 +29,7 @@ const $searchApparatus = document.querySelector("#search-apparatus")
 const $searchUtensils = document.querySelector("#search-utensils")
 const $tags = document.querySelector("#tags")
 const $listResult = document.querySelectorAll(".list-result")
+
 
 // CLASS
 const filter = new Filter(recipes)
@@ -42,6 +44,9 @@ const displayRecipes = (recipes) => {
     recipes.forEach(recipe => {
         displayRecipe(recipe)
     })
+    if ($searchResult.children.length == 0){ // à l'affichage je regarde si mon DOM est vide
+        interfaceMessage()
+    }
 }
 
 /**
@@ -144,3 +149,4 @@ displayUtensils(recipes, [])
 toggleListResult()
 eventTag()
 eventList()
+

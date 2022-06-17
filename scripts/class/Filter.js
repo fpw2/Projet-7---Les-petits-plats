@@ -1,3 +1,4 @@
+
 /**
  * Filtre mes recettes en faisant correspondre mes données 
  * avec ce que je tappe dans la recherche ou/et avec les tags
@@ -13,15 +14,7 @@ export class Filter {
         recipe.description.toLowerCase().includes(input.toLowerCase()) ||
         recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(input.toLowerCase()))
     })
-    if (this.recipes.length == 0) {
-      const $searchResult = document.querySelector("#search-result")
-      const result = document.createElement("p")
-      result.classList.add("no-result")
-      result.textContent = "Aucune recette ne correspond à votre recherche"
-      $searchResult.appendChild(result)
-    } else {
-      return this.recipes
-    }
+    return this.recipes
   }
 
   byTag(tag) {
@@ -48,7 +41,6 @@ export class Filter {
         })
         break
     }
-    console.log("tag", this.recipes)
     return this.recipes
   }
 

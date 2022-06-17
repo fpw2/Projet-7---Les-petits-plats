@@ -25,12 +25,12 @@
                     fill="#D04F4F" />
             </svg>
             <h1 id="title">Les petits plats</h1>
-        </header></p>
-        <div id="search">
-            <input id="search-input" type="text" placeholder="Rechercher une recette">
-        </div>
+        </header>
+        <main id="search">
+            <input id="search-input" type="text" >
+        </main>
         <p id="tags"></p>
-        <div id="inputs">
+        <section id="inputs">
             <div id="ingredients" class="combo-box">
                 <div class="content-input">
                     <input id="search-ingredients" type="text" class="i" data-type="Ingredients" data-search-type="ingrédient" placeholder="Ingredients">
@@ -52,12 +52,13 @@
                 </div>
                 <div id="list-utensils-result"  class="list-result"  data-type="utensils"></div>
             </div>
-        </div>
+        </section>
         <div id="search-result"></div>
     </div>
 
     <!-- scripts -->
     <script type="module" src="./scripts/index.js"></script>
+    <script defer src="./scripts/functions/interfaceMessage.js"></script>
 
 </body>
 
