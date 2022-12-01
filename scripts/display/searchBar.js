@@ -10,7 +10,9 @@ const $searchResult = document.querySelector("#search-result")
     $searchResult.insertAdjacentHTML("beforeend",
         `
     <div class="recipe">
-        <div class="recipe-image"></div>
+        <div class="recipe-image">
+            <img src="assets/images/${recipe.name}.jpg" alt="" />
+        </div>
         <div class="recipe-body">
             <div class="recipe-header">
                 <div class="recipe-title">

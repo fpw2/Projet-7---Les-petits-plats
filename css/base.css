@@ -8,6 +8,7 @@ GLOBAL
 
 .flex {
     display: flex;
+    
 }
 
 .clearfix:before,
